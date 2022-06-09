@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic| Home</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <img class="imagemLogo" src="pngwing.com (1).png">
+            <h1 class="magic">Black Magic</h1>
+            
+            <ul>
+                <li><a href="index.html"> <span> Home </span></a></li>
+                <li><a href="Oque.html">Oque é magic?</a></li>
+                <li><a href="sobrenos.html">Sobre nós</a></li>
+                <li><a>|</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </div>
+    
+<div class="bk">
+<div class="containerCaixa">
+<div class="caixa">
+    <h1 class="hCadastro">Cadastre-se Aqui</h1>
+<div class="textoCadastro">Insira seu Nome Abaixo</div>    
+<input id="nome_input" class="iptCadastro" type="text">
+<div class="textoCadastro">Insira seu Email Abaixo</div>    
+<input id="email_input" class="iptCadastro" type="text">
+<div class="textoCadastro">Insira sua senha Abaixo</div>    
+<input id="senha_input" class="iptCadastro" type="password">
+<div class="textoCadastro">Confirme sua senha Nome Abaixo</div>    
+<input id="confirmacao_senha_input" class="iptCadastro" type="password">
+<button onclick="cadastrar()">cadastrar</button>
+
+
+<!-- <div id="div_aguardar" class="loading-div">
+    <img src="./assets/circle-loading.gif" id="loading-gif">
+</div> -->
+
+</div>
+
+</div>
+
+</div>
+
+
+    </body>
+    <script>
+        function cadastrar() {
+            // aguardar();
+    
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nomeVar = nome_input.value;
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+            var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    
+            if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+                alert("Insira os dados corretamente para prosseguir")
+                
+    
+                // finalizarAguardar();
+                return false;
+            }
+            // else {
+            //     setInterval(sumirMensagem, 5000)
+            // }
+    
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    alert("Cadastro realizado com sucesso")
+                    // cardErro.style.display = "block";
+    
+                    // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+    
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "1500")
+                    
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+    
+            return false;
+        }
+    
+        // function sumirMensagem() {
+        //     cardErro.style.display = "none"
+        // }
+    
+    </script>

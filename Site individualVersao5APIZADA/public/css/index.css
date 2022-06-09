@@ -1,0 +1,60 @@
+.imgfundo{
+ display: flex;
+ background-size: cover;
+ background-image: url(Magic-The-Gathering-Wallpaper-HD.jpg);
+ height: 630px;
+}
+.glass{
+    display: flex;
+background-color: rgba(0, 0, 0, 0.323);
+width: 500px;
+height: 200px;
+margin-top: 150px;
+margin-left: 400px;
+border-radius: 100px;
+}
+.glass:hover{
+    transform: scale(1.05)
+}
+.textohome{
+display: flex;
+font-size: 30px;
+color: white;
+padding-top: 40px;
+flex-direction: column;
+padding-left: 20px;
+padding-right: 10px;
+}
+.bt1{
+display: flex;
+width: 250px;
+height: 50px;  
+margin-top: 295px;
+background-color: rgb(187, 18, 18);
+border-radius: 20px;
+border: black 2px solid;
+
+cursor: pointer;
+}
+.bt1:hover{
+    transform: scale(1.05)
+}
+.textobt1{
+    display: flex;
+    font-size: 26px;
+    color: white;
+    align-items: center;
+    padding-left: 20px;
+}
+
+h1{
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+    font-family: OldLondon;
+    @font-face {
+       font-family: 'OldLondon';
+       src: url('OldLondon.ttf') format('truetype');
+   }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic| Home</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="Css/contador.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <img class="imagemLogo" src="pngwing.com (1).png">
+            <h1 class="magic">Black Magic</h1>
+
+            <ul>
+                <li><a href="Dados.html">Dados</a></li>
+                <li><a href="Contador.html">Contador de vida</a></li>
+                <li><a href="Metricas.html">Melhore seu deck</a></li>
+                <li><a>|</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="bk">
+        <div class="containerContador">
+
+            <div class="caixa">
+                <h1 class="jogador">Jogador 1</h1>
+                <div id="div_jogador1" class="textoVida"> Vida 40</div>
+                <button onclick="jmen1()" class="botaoVida">-1</button>
+                <button onclick="jmai1()" class="botaoVida">+1</button>
+            </div>
+
+            <div class="caixa">
+                <h1 class="jogador">Jogador 2</h1>
+                <div id="div_jogador2" class="textoVida">Vida 40</div>
+                <button onclick="jmen2()" class="botaoVida">-1</button>
+                <button onclick="jmai2()" class="botaoVida">+1</button>
+            </div>
+            <button onclick="reset()" class="botaoReset">Resetar</button>
+            <div class="caixa">
+                <h1 class="jogador">Jogador 3</h1>
+                <div id="div_jogador3" class="textoVida">Vida 40</div>
+                <button onclick="jmen3()" class="botaoVida">-1</button>
+                <button onclick="jmai3()" class="botaoVida">+1</button>
+            </div>
+
+
+            <div class="caixa">
+                <h1 class="jogador">Jogador 4</h1>
+                <div id="div_jogador4" class="textoVida">Vida 40</div>
+                <button onclick="jmen4()" class="botaoVida">-1</button>
+                <button onclick="jmai4()" class="botaoVida">+1</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    var jogador1 = 40;
+    var jogador2 = 40;
+    var jogador3 = 40;
+    var jogador4 = 40;
+
+function jmen1() {
+    jogador1--
+    div_jogador1.innerHTML = `Vida ${jogador1}`
+}
+function jmai1() {
+    jogador1++
+    div_jogador1.innerHTML = `Vida ${jogador1}`
+}
+
+function jmen2() {
+    jogador2--
+    div_jogador2.innerHTML = `Vida ${jogador2}`
+}
+function jmai2() {
+    jogador2++
+    div_jogador2.innerHTML = `Vida ${jogador2}`
+}
+
+function jmen3() {
+    jogador3--
+    div_jogador3.innerHTML = `Vida ${jogador3}`
+}
+function jmai3() {
+    jogador3++
+    div_jogador3.innerHTML = `Vida ${jogador3}`
+}
+
+function jmen4() {
+    jogador4--
+    div_jogador4.innerHTML = `Vida ${jogador4}`
+}
+function jmai4() {
+    jogador4++
+    div_jogador4.innerHTML = `Vida ${jogador4}`
+}
+function reset() {
+    jogador1 = 40;
+    jogador2 = 40;
+    jogador3 = 40;
+    jogador4 = 40;
+    div_jogador1.innerHTML = `Vida ${jogador1}`
+    div_jogador2.innerHTML = `Vida ${jogador2}`
+    div_jogador3.innerHTML = `Vida ${jogador3}`
+    div_jogador4.innerHTML = `Vida ${jogador4}`
+}
+</script>

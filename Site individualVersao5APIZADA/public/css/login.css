@@ -1,0 +1,38 @@
+.bk{
+    display: flex;
+    background-image: url(1671596.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+align-items: center;
+justify-content: center
+;
+}
+.containerCaixa{
+    display: flex;
+    
+}
+.caixa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    width: 450px;
+    border-radius: 900px;
+    background: #353b41d8;
+    box-shadow: inset -35px 35px 70px #372b2b,
+    inset 35px -35px 70px #634f4f;
+    }
+    .textoLoga{
+        display: flex;
+        color: white;
+        
+    }
+    .textologin{
+        display: flex;
+        color: white;
+    }
+    .ipt{
+        margin: 10px;
+    }

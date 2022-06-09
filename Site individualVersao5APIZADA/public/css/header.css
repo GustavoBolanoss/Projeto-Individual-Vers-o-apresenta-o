@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+.container {
+    background-color: #353b41;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagemLogo {
+    height: 60px;
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+.header h1 {
+    margin-right: 200px;
+}
+
+.container ul {
+    display: flex;
+    width: 600px;
+    justify-content: space-around ;
+    list-style: none;
+    align-items: center;
+    padding-right: 20px;
+    transition: all 500ms;
+}
+.container ul li:hover{
+  border-bottom: black 2px solid;  
+  border-left: black 1px solid;
+}
+.container a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.05s;
+}
+
+.magic{
+    color: black;
+    font-family: OldLondon;
+   @font-face {
+       font-family: 'OldLondon';
+       src: url('OldLondon.ttf') format('truetype');
+   }
+}
+

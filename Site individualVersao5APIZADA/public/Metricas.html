@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic| Home</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="Css/Metricas.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <img class="imagemLogo" src="pngwing.com (1).png">
+            <h1 class="magic">Black Magic</h1>
+
+            <ul>
+                <li><a href="Dados.html">Dados</a></li>
+                <li><a href="Contador.html">Contador de vida</a></li>
+                <li><a href="Metricas.html">Melhore seu deck</a></li>
+                <li><a>|</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="bk">
+        <h1 class="textoCentro"> Insira os dados do seu deck </h1>
+        <div id="respostaUsuarioPai1" class="respostaUsuarioPai">
+            <div class="respostaUsuario" id="div_msg1"></div>
+        </div>
+        <div class="esquerda">
+            <div class="iptContainer">
+                <div class="selecione">Selecione uma das mono cores</div>
+                <select class="sel" name="" id="cor">
+                    <option value="">Selecione Abaixo</option>
+                    <option value="Red">Red</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Green">Green</option>
+                </select>
+                <div class="texto">Insira um numero de cadastro para seu deck:</div>
+                <input id="num" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade das lands abaixo:</div>
+                <input id="land" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade dos artefatos abaixo:</div>
+                <input id="artefato" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade dos encatamentos abaixo:</div>
+                <input id="encatamento" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade das criaturas abaixo:</div>
+                <input id="criaturas" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade das instants abaixo:</div>
+                <input id="instant" class="ipt" type="text">
+
+                <div class="texto">Insira a quantidade das feitiços abaixo:</div>
+                <input id="feitiço" class="ipt" type="text">
+
+
+                <button onclick="cadastrar()" class="bt">Cadastrar deck</button>
+                <button onclick="analise()" class="bt">Analisar deck</button>
+                <div class="texto">Informe o numero do deck que você quer Analisar:</div>
+                <input id="numAnalise" class="ipt" type="text">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var corVar = cor.value
+        var numVar = num.value
+        var landVar = land.value;
+        var artefatoVar = artefato.value;
+        var encatamentoVar = encatamento.value;
+        var criaturasVar = criaturas.value;
+        var instantVar = instant.value;
+        var feitiçoVar = feitiço.value;
+        var soma = Number(landVar) + Number(artefatoVar) + Number(encatamentoVar) + Number(criaturasVar) + Number(instantVar) + Number(feitiçoVar);
+
+        if (landVar == "" || artefatoVar == "" || encatamentoVar == "" || criaturasVar == "" || instantVar == "" || feitiçoVar == "" || numVar == "") {
+            alert("Insira os dados corretamente para prosseguir")
+
+
+            // finalizarAguardar();
+            return false;
+        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        var idUsuario = sessionStorage.ID_USUARIO
+
+        // Enviando o valor da nova input
+        if (soma == 100) {
+            fetch("/decks/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    fkUsuarioServer: idUsuario,
+                    corServer: corVar,
+                    numServer: numVar,
+                    qtdLandsServer: landVar,
+                    qtdArtefatosServer: artefatoVar,
+                    qtdEncatamentosServer: encatamentoVar,
+                    qtdCriaturasServer: criaturasVar,
+                    qtdInstantServer: instantVar,
+                    qtdFeitiçosServer: feitiçoVar,
+
+                })
+            }).then(function (resposta) {
+
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("Deck cadastrado com sucesso")
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    // setTimeout(() => {
+                    //     window.location = "login.html";
+                    // }, "1500")
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+        } else {
+            alert("Insira um deck com 100 cartas")
+            land.value = ``;
+            artefato.value = ``;
+            encatamento.value = ``;
+            criaturas.value = ``;
+            instant.value = ``;
+            feitiço.value = ``;
+        }
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+    function analise() {
+        var numVar = numAnalise.value;
+        var idUsuario = sessionStorage.ID_USUARIO
+        var res = [];
+
+        if (numVar == "") {
+            alert("Insira um numero do deck para analise")
+            return false;
+        }
+
+        fetch(`/decks/analisarDeck`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkUsuarioServer: idUsuario,
+                numVarServer: numVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("res: ", res);
+            // console.log("resposta: ", resposta);
+
+            resposta.json().then(json => {
+                // console.log(json);
+                console.log("----", json[0]);
+                res = json[0];
+                sessionStorage.json = JSON.stringify(res);
+
+            });
+            res = JSON.parse(sessionStorage.json)
+            console.log("Aqui ta retornando viado", res.cor);
+            var corDeck = (res.cor)
+            var land = Number(res.qtdLands)
+            var artefato = Number(res.qtdArtefatos)
+            var encatamento = Number(res.qtdEncatamentos)
+            var criaturas = Number(res.qtdCriaturas)
+            var instant = Number(res.qtdInstant)
+            var feitiço = Number(res.qtdFeitiços)
+
+
+            if (corDeck == "Red" && land == 35 && artefato == 10 && encatamento == 5 && criaturas == 25 && instant == 13 && feitiço == 12 ) {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} e esse esta perfeito  <br> 
+                tem ${land} lands e eu recomendaria que tivesse 35 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 5 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 25<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 13<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 12`
+                respostaUsuarioPai1.style.display = `block`
+            } else if (corDeck == "Red") {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck}  <br> 
+                tem ${land} lands e eu recomendaria que tivesse 35 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 5 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 25<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 13<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 12`
+                respostaUsuarioPai1.style.display = `block`
+            }
+            if (corDeck == "Black" && land == 38 && artefato == 14 && encatamento == 10 && criaturas == 12 && instant == 13 && feitiço == 13 ) {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} e esse esta perfeito <br> 
+                tem ${land} lands e eu recomendaria que tivesse 38 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 14 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 10 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 12<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 13<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 13`
+                respostaUsuarioPai1.style.display = `block`
+            } else if (corDeck == "Black") {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} <br> 
+                tem ${land} lands e eu recomendaria que tivesse 38 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 14 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 10 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 12<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 13<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 13`
+                respostaUsuarioPai1.style.display = `block`
+            }
+
+            if (corDeck == "Blue" && land == 33 && artefato == 10 && encatamento == 8 && criaturas == 14 && instant == 20 && feitiço == 15 ) {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} e esse esta perfeito <br> 
+                tem ${land} lands e eu recomendaria que tivesse 33 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 8 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 14<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 20<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 15`
+                respostaUsuarioPai1.style.display = `block`
+            } else if (corDeck == "Blue") {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck}<br> 
+                tem ${land} lands e eu recomendaria que tivesse 33 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 8 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 14<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 20<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 15`
+                respostaUsuarioPai1.style.display = `block`
+            }
+
+            if (corDeck == "Green" && land == 36 && artefato == 8 && encatamento == 6 && criaturas == 30 && instant == 9 && feitiço == 11 ) {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} e esse esta perfeito <br> 
+                tem ${land} lands e eu recomendaria que tivesse 36 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 8<br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 6 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 30<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 9<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 11`
+                respostaUsuarioPai1.style.display = `block`
+            } else if (corDeck == "Green") {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} <br> 
+                tem ${land} lands e eu recomendaria que tivesse 36 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 8<br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 6 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 30<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 9<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 11`
+                respostaUsuarioPai1.style.display = `block`
+            }
+
+            if (corDeck == "White" && land == 40 && artefato == 10 && encatamento == 10 && criaturas == 20 && instant == 10 && feitiço == 10 ) {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck} e esse esta perfeito <br> 
+                tem ${land} lands e eu recomendaria que tivesse 40 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 10 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 20<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 10<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 10`
+                respostaUsuarioPai1.style.display = `block`
+            } else if (corDeck == "White") {
+                div_msg1.innerHTML = ` Seu deck e da cor ${corDeck}<br> 
+                tem ${land} lands e eu recomendaria que tivesse 40 <br>
+                Tem ${artefato} artefatos e eu recomendaria que tivesse 10 <br>
+                Tem ${encatamento} encatamentos e eu recomendaria que tivesse 10 <br>
+                Tem ${criaturas} criaturas e eu recomendaria que tivesse 20<br>
+                Tem ${instant} instants e eu recomendaria que tivesse 10<br>
+                Tem ${feitiço} Feitiços e eu recomendaria que tivesse 10`
+                respostaUsuarioPai1.style.display = `block`
+            }
+
+
+
+
+
+
+
+
+            // if (resposta.ok) {
+            //     alert("Deck cadastrado com sucesso")
+            //     // cardErro.style.display = "block";
+
+            //     // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            //     // setTimeout(() => {
+            //     //     window.location = "login.html";
+            //     // }, "1500")
+
+            //     // limparFormulario();
+            //     // finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+            // }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+    }
+</script>

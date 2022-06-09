@@ -1,0 +1,60 @@
+.bk{
+    display: flex;
+    background-image: url(wp_commandtower_1280x960.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+.containerContador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.caixa{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    margin-left: 120px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+    background: #b02121;
+    box-shadow:  20px 20px 60px #460d0d,
+             -20px -20px 60px #ff3535;
+}
+.botaoReset{
+    display: flex;
+    position: absolute;
+    margin-left: 43%;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    background-color: rgba(77, 57, 57, 0.779);
+    height: 200px;
+    width: 200px;
+    border-radius: 60px;
+}
+.textoVida{
+    display: flex;
+    font-size: 20px;
+    margin-top: 150px;
+    position: absolute;
+}
+.jogador{
+    display: flex;
+    position: absolute;
+}
+.botaoVida{
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 250px;
+    margin-right: 4px;
+background-color: #460d0d;
+color: white;
+}

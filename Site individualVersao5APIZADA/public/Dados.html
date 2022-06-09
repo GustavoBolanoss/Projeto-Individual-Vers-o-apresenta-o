@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic| Home</title>
+    <link rel="stylesheet" href="Css/header.css">
+    <link rel="stylesheet" href="css/dados.css">
+    
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <img class="imagemLogo" src="pngwing.com (1).png">
+            <h1 class="magic">Black Magic</h1>
+
+            <ul>
+                <li><a href="Dados.html">Dados</a></li>
+                <li><a href="Contador.html">Contador de vida</a></li>
+                <li><a href="Metricas.html">Melhore seu deck</a></li>
+                <li><a>|</a></li>
+                <li><a href="login.html">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+<div class="bk">
+<div class="caixa">
+<div class="text">D20</div>
+<div class="text1">Quantos dados você <br> gostaria de rolar?</div>
+<input id="d20"  class="ipt" type="text">
+<button onclick="bTd20()" class="botao" >Rode aqui</button>
+</div>
+
+<div id="caixona" class="caixa1">
+<div id="div_msg" class="mensagem"></div>
+
+
+</div>
+
+    <div class="caixa">
+    <div class="text">D6</div>
+    <div class="text1">Quantos dados você <br> gostaria de rolar?</div>
+    <input id="d6"  class="ipt" type="text">
+    <button onclick="bTd6()" class="botao" >Rode aqui</button>
+    </div>
+
+
+</div>
+
+</body>
+
+<script>
+function bTd20() {
+    var vt_d20 = d20.value
+    div_msg.innerHTML = ``
+    for (let index = 1; index <= vt_d20; index++) {
+        caixona.style.display = `block`
+        div_msg.innerHTML += `O seu ${index} dado deu ${ ( (Math.random() * 19 ) + 1).toFixed(0) } <br>`
+        
+    }
+}
+
+function bTd6() {
+    var vt_d6 = d6.value
+    div_msg.innerHTML = ``
+    for (let index = 1; index <= vt_d6; index++) {
+        caixona.style.display = `block`
+        div_msg.innerHTML += `O seu ${index} dado deu ${ ( (Math.random() * 5 ) + 1).toFixed(0) } <br>`
+        
+    }
+}
+
+</script>

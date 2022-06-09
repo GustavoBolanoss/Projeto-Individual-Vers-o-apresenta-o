@@ -1,0 +1,97 @@
+.bk{
+   background-image: url(swamp_shie-nanahara_1280x960.jpg); 
+   background-size: cover;
+   display: flex;
+   height: 120vh;
+   flex-wrap: wrap; 
+   
+}
+.textoCentro{
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    margin-left: 389px;
+    height: 100px;
+}
+*::selection{
+    background-color: black;
+    color: white;
+
+}.esquerda{
+        display: flex;
+        position: absolute;
+        width: 368px;
+        flex-direction: column;
+    }
+.iptContainer{
+    display: flexbox;
+    margin-left: 10px;
+    flex-direction: column;
+    
+}
+.texto{
+    display: flex;
+    color: white;
+}
+.ipt{
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.252);
+    color: white;
+}
+.bt{
+color: white;
+align-items: center;
+display: flex;
+margin: 2px;
+border: solid rgba(88, 78, 78, 0.597) 1px ;
+width: 120px;  
+height: 50px;
+background-color: rgba(0, 0, 0, 0.705);  
+border-radius: 10px;
+}
+.sel{
+display: flex;
+width: 150px; 
+margin-left: 50px;  
+margin-bottom: 20px; 
+border-radius: 10px;
+color: white;
+background-color: rgba(0, 0, 0, 0.652);
+border: 1px solid black;
+}
+.selecione{
+display: flex;
+color: white;
+font-weight: bold;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-left: 15px;  
+margin-bottom: 4px;  
+}
+
+.respostaUsuarioPai{
+display: flex;
+align-items: center;
+justify-content: center;
+display: none;
+margin-left: 40%;
+margin-top: 20%;
+border-radius: 54px;
+background: #694f4f;
+box-shadow:  20px 20px 40px #433333,
+             -20px -20px 40px #8f6b6b;
+             height: 250px;
+             
+}
+.respostaUsuario{
+display: flex;
+color: white;
+margin-left: 10px;
+margin-right: 10px;
+justify-content: center;
+font-size: 20px;
+margin-top: 30px
+}

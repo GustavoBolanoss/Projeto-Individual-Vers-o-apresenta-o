@@ -1,0 +1,65 @@
+.bk{
+    background-image: url(Magic_The_Gathering_Ravnica-1843853\ \(1\).jpg);
+    background-size: cover;
+    height: 100vh;   
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+   }
+   .Caixa{
+       margin-top: 12px;
+       display: flex;
+       background-color: #353b412d;
+       border-radius: 50px;
+       width: 400px;
+       height: 270px;
+       align-items: center;
+       margin-left: 10px;
+       box-shadow: 2px 2px 2px 2px rgb(104, 94, 94); 
+       margin-top: 25px;
+   }
+   .texto{
+       color: white;
+       margin-left: 10px;
+       margin-right: 4px;
+   }
+   .caixa1{
+       display: flex;
+       background-color: #353b412d;
+       border-radius: 50px;
+       width: 400px;
+       height: 270px;
+       align-items: center;
+       margin-left: 10px;
+       box-shadow: 2px 2px 2px 2px rgb(104, 94, 94); 
+       margin-bottom: 30px;
+   }
+   .texto1{
+       color: white;
+       margin-left: 10px;
+       margin-right: 4px;
+   }
+  .foto{
+      display: flex;
+      justify-content: end;
+      margin-top: 10px;
+      margin-right: 60px;
+  }
+  .fotod{
+      display: flex;
+      height: 350px;
+      width: 270px;
+  }
+  .caixa2{
+    display: flex;
+    justify-content: end;
+    margin-left: 515px;
+    background-color: #353b412d;
+    border-radius: 50px;
+    width: 400px;
+    height: 270px;
+    align-items: center;
+    box-shadow: 2px 2px 2px 2px rgb(104, 94, 94); 
+    margin-bottom: 30px;
+}

@@ -1,0 +1,70 @@
+.bk{
+    display: flex;
+    background-image: url(wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.caixa{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #4d1f1f;
+    box-shadow:  20px 20px 33px #1f0c0c,
+             -20px -20px 33px #7b3232;
+}
+.caixa1{
+    display: flex;
+    display: none;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #451c1c, #522121);
+    box-shadow:  29px 29px 34px #491d1d,
+             -29px -29px 34px #512121;
+}
+.mensagem{
+    display: flex;
+    color: white;
+    justify-content: center;
+    margin-top: 30px;
+}
+.text{
+    display: flex;
+    color: white;
+    margin: 10px;
+    font-size: 40px;
+    font-weight: 900;
+    
+}
+.text1{
+    display: flex;
+    color: white;
+    
+}
+.ipt{
+    display: flex;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.661);
+    color: white;
+    
+}
+.botao{
+    display: flex;
+    width: 50px;
+    height: 40px;
+    background-color: rgb(173, 33, 33);
+    color: white;
+    
+}
+
