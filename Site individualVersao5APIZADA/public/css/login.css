@@ -35,4 +35,13 @@ justify-content: center
     }
     .ipt{
         margin: 10px;
+        margin-bottom: 10px;
+    }
+    .botao{
+        display: flex;
+        background-color: rgba(121, 62, 62, 0.861);
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 10px;
     }

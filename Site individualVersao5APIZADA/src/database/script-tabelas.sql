@@ -9,17 +9,16 @@ CREATE DATABASE blackmagic;
 USE blackmagic;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50)
 );
 
 create table deck(
-idDeck int auto_increment,
+idDeck primary key int IDENTITY(1,1),
 fkUsuario int,
 foreign key (fkUsuario) references usuario (id),
-primary key(idDeck, fkUsuario),
 cor varchar(45),
 numDeck int,
 qtdLands int,
