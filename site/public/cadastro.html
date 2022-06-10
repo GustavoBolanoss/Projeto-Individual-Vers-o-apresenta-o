@@ -72,6 +72,14 @@
                 // finalizarAguardar();
                 return false;
             }
+            if (emailVar.indexOf("@") == -1) {
+                alert("Insira um email válido")
+                return false
+            }
+            if (senhaVar != confirmacaoSenhaVar) {
+                alert("Senhas divergentes")
+                return false
+            }
             // else {
             //     setInterval(sumirMensagem, 5000)
             // }
